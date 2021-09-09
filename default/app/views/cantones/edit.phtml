@@ -1,29 +1,21 @@
 <div class="row section">
 
     <?php View::content(); ?>
-    <h3 class="center"><b>Registro Autobuses</b></h3>
+    <h3 class="center"><b>Registro Cantones</b></h3>
 
     <?php echo Form::open(); ?>
 
     <div class="col s6">
-        <label for="">Numero de la unidad
-            <?php echo Form::text('autobuses.numero_unidad'); ?>
+        <label for="">Nombre del canton
+            <?php echo Form::text('cantones.nombre_canton'); ?>
         </label>
-    </div>
-
-    <div class="col s6">
-        <label for="">Numero de placa
-            <?php echo Form::text('autobuses.numero_placa'); ?>
-        </label>
-
-        <br> <br>
     </div>
 
     <div class="col s6">
         <label for="habilitado">Habilitado
             <?php
             $arreglo = array('Inhabilitado', 'Habilitado');
-            echo Form::select('autobuses.habilitado', $arreglo);
+            echo Form::select('cantones.habilitado', $arreglo);
             ?>
         </label>
 
@@ -31,7 +23,7 @@
     </div>
 
     <div class="col s12">
-        <?= Form::hidden('autobuses.Id'); ?>
+        <?= Form::hidden('cantones.id'); ?>
         <?php echo Form::submit('Guardar', 'class="btn green"') ?>
         <?php echo Form::reset('Limpiar', 'class="btn blue"') ?>
         <?php echo Html::linkAction('index', 'regresar', "class='btn red darken-1'") ?>
