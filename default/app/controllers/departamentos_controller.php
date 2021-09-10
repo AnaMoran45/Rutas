@@ -1,5 +1,6 @@
 <?php 
-    Load::models('departamentos');
+    
+ Load::models('departamentos');
 
     class DepartamentosController extends AppController
     {
@@ -33,24 +34,27 @@
         public function edit($id)
         {
             View::template('estilos_rutas');
-            $this->titulo = "Departamentos";
+            $this->titulo ="departamentos";
             $departamento = new Departamentos();
-            if (Input::haspost('departamentos')) {
+            if (Input::hasPost('departamentos')) {
 
                 if(!$departamento->update(Input::post('departamentos'))) {
-                    Flash::error("Error vuelva a intentarlo");
-                }else{
-                    Flash::valid("departamento editado exitosamente");
+                    Flash::error("error al editar vuelva a intentar");
+                }else {
+                    Flash::valid("creado departamento exitosamente");
                     return Redirect::to();
                 }
+                
             }else{
                 $this->departamentos = $departamento->find((int)$id);
             }
         }
-    
+        
         //delete
 
-        public function del($id){
+        public function del($id)
+        {
+
             $departamento = new Departamentos();
             if(!$departamento->delete((int)$id)){
                 Flash::error("error al ingesar el departamento");
@@ -59,5 +63,5 @@
             }
             return Redirect::to();
         }
-    }
+    }   
 ?>
