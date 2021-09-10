@@ -1,20 +1,14 @@
 <div class="row">
     <?php echo View::content();?>
     <?php echo Form::open(); ?>
+    <h3 class="center">Editar Departamento</h3>
         <div class="col s6">
-            <label>
+            <label for="">nombre_departamento
                 <?php echo Form::text('departamentos.nombre_departamento');?>
             </label>
         </div>
         <div class="col s6">
-            <label>
-                <input type="checkbox"/>
-                    <?php echo Form::check('departamentos.habilitado','1','',true); ?>
-                    <span>Habilitado</span>
-            </label>
-        </div>
-        <div class="col s6">
-            <label for="habilitado">
+            <label for="habilitado">Habilitado
                 <?php
                 $arreglo = array('Inhabilitado', 'Habilitado');
                  echo Form::select('departamentos.habilitado', $arreglo);
@@ -23,7 +17,9 @@
         </div>
         <div class="col s12">
             <?php echo Form::hidden('departamentos.id');?>
-            <?php echo Form::submit('guardar','class="btn green"') ?>
+            <?php echo Form::submit('guardar','class="btn green"'); ?>
+            <?php echo Form::reset('Limpiar','class="btn blue'); ?>
+            <?php echo Html::linkAction('index', 'Regresar',"class='btn red darken-1'") ?>
         </div>
     <?php echo Form::close(); ?>
 </div>

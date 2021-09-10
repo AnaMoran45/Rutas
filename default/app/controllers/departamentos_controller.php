@@ -1,62 +1,63 @@
 <?php 
-Load::models('departamentos');
+    Load::models('departamentos');
 
-class DepartamentosController extends AppController
-{
-    public function index($page=1) 
+    class DepartamentosController extends AppController
     {
-        View::template('estilos_rutas');
-        $this->titulo = "Departamentos";
-        $departamento = new Departamentos();
-        $this->ListaDepartamentos = $departamento->getDepartamentos($page);
-    }
+        public function index($page=1) 
+        {
+            View::template('estilos_rutas');
+            $this->titulo = "Departamentos";
+            $departamento = new Departamentos();
+            $this->ListaDepartamentos = $departamento->getDepartamentos($page);
+        }
 
-    //create 
+        //create 
 
-    public function create()
-    {
-        View::template('estilos_rutas');
-        $this->titulo = "Departamentos";
-        if (input::hasPost('departamentos')) {
-            $departamento = new Departamentos(Input::post('departamentos'));
-            if ($departamento->save()) {
-                Flash::Valid("departamento agregado correctamente");
-                Input::delete();
-                return Redirect::to();
+        public function create()
+        {
+            View::template('estilos_rutas');
+            $this->titulo = "Departamentos";
+            if (input::hasPost('departamentos')) {
+                $departamento = new Departamentos(Input::post('departamentos'));
+                if ($departamento->save()) {
+                    Flash::Valid("departamento agregado correctamente");
+                    Input::delete();
+                    return Redirect::to();
+                }
+                Flash::error("error al crear departamento");
             }
-            Flash::error("error al crear departamento");
         }
-    }
 
-    //edit
+        //edit
 
-    public function edit($id)
-    {
-        View::template('estilos_rutas');
-        $this->titulo ="departamentos";
-        $Departamento = new Departamentos();
-        if (Input::hasPost('departamentos')) {
+        public function edit($id)
+        {
+            View::template('estilos_rutas');
+            $this->titulo = "Departamentos";
+            $departamento = new Departamentos();
+            if (Input::haspost('departamentos')) {
 
-            if(!$departamento->update(Input::post('departamentos'))){
-                Flash::error("error al editar departamentos");
-            } else {
-                Flash::valid("creado departamento exitosamente");
-                return Redirect::to();
+                if(!$departamento->update(Input::post('departamentos'))) {
+                    Flash::error("Error vuelva a intentarlo");
+                }else{
+                    Flash::valid("departamento editado exitosamente");
+                    return Redirect::to();
+                }
+            }else{
+                $this->departamentos = $departamento->find((int)$id);
             }
-        }else{
-            $this->departamentos = $departamento->find((int)$id);
+        }
+    
+        //delete
+
+        public function del($id){
+            $departamento = new Departamentos();
+            if(!$departamento->delete((int)$id)){
+                Flash::error("error al ingesar el departamento");
+            }else{
+                Flash::valid("ingresado con exito");
+            }
+            return Redirect::to();
         }
     }
-
-    //delete
-
-    public function del($id){
-        $departamento = new Departamentos();
-        if(!$departamento->delete((int)$id)){
-            Flash::error("error al ingesar el departamento");
-        }else{
-            Flash::valid("ingresado con exito");
-        }
-        return Redirect::to();
-    }
-}
+?>

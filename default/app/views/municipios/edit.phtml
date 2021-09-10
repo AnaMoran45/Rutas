@@ -1,20 +1,14 @@
 <div class="row">
     <?php echo View::content();?>
     <?php echo Form::open(); ?>
+    <h3 class="center">Editar el municipio</h3>
         <div class="col s6">
-            <label>
-                <?php echo Form::text('municipios.nombre_departamento');?>
+            <label for="">nombre_municipio
+                <?php echo Form::text('municipios.nombre_municipio');?>
             </label>
         </div>
         <div class="col s6">
-            <label>
-                <input type="checkbox"/>
-                    <?php echo Form::check('municipios.habilitado','1','',true); ?>
-                    <span>Habilitado</span>
-            </label>
-        </div>
-        <div class="col s6">
-            <label for="habilitado">
+            <label for="habilitado">Habilitado
                 <?php
                 $arreglo = array('Inhabilitado', 'Habilitado');
                  echo Form::select('municipios.habilitado', $arreglo);

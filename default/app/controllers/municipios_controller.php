@@ -3,14 +3,13 @@ Load::models('municipios');
 
 class MunicipiosController extends AppController
 {
-    public function index($page=1) 
+    public function index($page=1)
     {
         View::template('estilos_rutas');
         $this->titulo = "Municipios";
         $municipio = new Municipios();
-        $this->listaMunicipios = $Municipio->getMunicipios($page);
+        $this->ListaMunicipios = $municipio->getMunicipios($page);
     }
-
     //create 
 
     public function create()
