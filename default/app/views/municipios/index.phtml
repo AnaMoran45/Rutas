@@ -1,16 +1,16 @@
 <?php echo View::content(); ?>
-    <h3 class="centered">Departamentos</h3>
+    <h3 class="centered">Municipios</h3>
 
     <?php echo Html::linkAction('create','Nuevo Municipio', "class='btn green right'") ?>
 
 <table class="centered table striped">
     <tr>
-        <thead class="black">
+        <thead>
             <th>Id</th>
             <th>Nombre Municipio</th>
             <th>Acciones</th>
         </thead>
-        <?php foreach ($ListaMunicipios->items as $item): ?>
+        <?php foreach ($listaMunicipios->items as $item): ?>
             <tr>
                 <td><?php echo $item->id?></td>
                 <td><?php echo $item->nombre_municipio ?></td>

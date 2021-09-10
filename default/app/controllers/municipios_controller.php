@@ -8,7 +8,7 @@ class MunicipiosController extends AppController
         View::template('estilos_rutas');
         $this->titulo = "Municipios";
         $municipio = new Municipios();
-        $this->listaMunicipios = $Municipio->getMunicipios($page);
+        $this->listaMunicipios = $municipio->getMunicipios($page);
     }
 
     //create 

@@ -34,7 +34,7 @@ class DepartamentosController extends AppController
     {
         View::template('estilos_rutas');
         $this->titulo ="departamentos";
-        $Departamento = new Departamentos();
+        $departamento = new Departamentos();
         if (Input::hasPost('departamentos')) {
 
             if(!$departamento->update(Input::post('departamentos'))){
