@@ -1,0 +1,27 @@
+<div class="row section">
+    <?php echo View::content();?>
+    <?php echo Form::open(); ?>
+        <h3 class="center">Editar Urbanizacion</h3>
+
+        <div class="col s6">
+            <label for="">Nombre de Urbanizacion
+                <?php echo Form::text('urbanizaciones.nombre_urbanizacion'); ?>
+            </label>
+        </div>
+
+        <div class="col s6">
+            <label for="habilitado">Habilitado
+                <?php
+                $arreglo = array('Inhabilitado', 'Habilitado');
+                 echo Form::select('urbanizaciones.habilitado', $arreglo);
+                ?>
+            </label>
+        </div>
+        <div class="col s12">
+            <?php echo Form::hidden('urbanizaciones.id');?>
+            <?php echo Form::submit('guardar','class="btn green"'); ?>
+            <?php echo Form::reset('Limpiar','class="btn blue'); ?>
+            <?php echo Html::linkAction('index', 'Regresar',"class='btn red darken-1'") ?>
+        </div>
+    <?php echo Form::close(); ?>
+</div>
