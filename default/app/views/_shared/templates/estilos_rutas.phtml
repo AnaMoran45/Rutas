@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,23 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title><?php echo $titulo ?></title>
 </head>
+
 <body>
+
+    <nav class="black">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"></a>
+            <ul id="nav-mobile" class="lefth hide-on-med-and-down">
+                <li><?php echo Html::Link('autobuses', 'Autobuses') ?></li>
+                <li><?php echo Html::Link('cantones', 'Cantones') ?></li>
+                <li><?php echo Html::Link('departamentos', 'Departamentos') ?></li>
+                <li><?php echo Html::Link('municipios', 'Municipios') ?></li>
+                <li><?php echo Html::Link('urbanizaciones', 'Urbanizaciones') ?></li>
+                <li><?php echo Html::Link('zonas', 'Zonas') ?></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         <?php View::content() ?>
     </div>
@@ -31,4 +48,5 @@
         });
     </script>
 </body>
+
 </html>
