@@ -1,23 +1,37 @@
 <div class="row">
-    <?php echo View::content();?>
+    <?php echo View::content(); ?>
     <?php echo Form::open(); ?>
     <h3 class="center">Editar el municipio</h3>
-        <div class="col s6">
-            <label for="">nombre_municipio
-                <?php echo Form::text('municipios.nombre_municipio');?>
-            </label>
-        </div>
-        <div class="col s6">
-            <label for="habilitado">Habilitado
-                <?php
-                $arreglo = array('Inhabilitado', 'Habilitado');
-                 echo Form::select('municipios.habilitado', $arreglo);
-                ?>
-            </label>
-        </div>
-        <div class="col s12">
-            <?php echo Form::hidden('municipios.id');?>
-            <?php echo Form::submit('guardar','class="btn green"') ?>
-        </div>
+    <div class="col s6">
+        <label for="">Municipio
+            <?php echo Form::text('municipios.nombre_municipio'); ?>
+        </label>
+    </div>
+
+    <div class="col s6">
+        <label for="municipio">Departamento
+            <?php
+            $arreglo = array('Sonsonate' => 'Sonsonate', 'Santa Ana' => 'Santa Ana');
+            echo Form::select('municipios.id_departamento', $arreglo);
+            ?>
+        </label>
+
+        <br> <br>
+    </div>
+
+    <div class="col s6">
+        <label for="habilitado">Habilitado
+            <?php
+            $arreglo = array('Inhabilitado', 'Habilitado');
+            echo Form::select('municipios.habilitado', $arreglo);
+            ?>
+        </label>
+    </div>
+    <div class="col s12">
+        <?php echo Form::hidden('municipios.id'); ?>
+        <?php echo Form::submit('guardar', 'class="btn green"') ?>
+        <?php echo Form::reset('Limpiar', 'class="btn blue"') ?>
+        <?php echo Html::linkAction('index', 'regresar', "class='btn red darken-1'") ?>
+    </div>
     <?php echo Form::close(); ?>
 </div>

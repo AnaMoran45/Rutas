@@ -20,6 +20,15 @@
     </div>
 
     <div class="col s6">
+        <label for="id_ruta">Ruta
+            <?php
+            $arreglo = array('53A' => '53A', '53A-1' => '53A-1', '53B' => '53B');
+            echo Form::select('autobuses.id_ruta', $arreglo);
+            ?>
+        </label>
+    </div>
+
+    <div class="col s6">
         <label for="habilitado">Habilitado
             <?php
             $arreglo = array('Inhabilitado', 'Habilitado');
