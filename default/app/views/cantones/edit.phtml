@@ -12,6 +12,17 @@
     </div>
 
     <div class="col s6">
+        <label for="municipio">Municipio
+            <?php
+            $arreglo = array('Izalco' => 'Izalco', 'Sonzacate' => 'Sonzacate', 'Armenia' => 'Armenia', 'Nahuizalco' => 'Nahuizalco');
+            echo Form::select('cantones.id_municipio', $arreglo);
+            ?>
+        </label>
+
+        <br> <br>
+    </div>
+
+    <div class="col s6">
         <label for="habilitado">Habilitado
             <?php
             $arreglo = array('Inhabilitado', 'Habilitado');

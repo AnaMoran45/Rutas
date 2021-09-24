@@ -1,40 +1,69 @@
-<?php echo View::content() ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<h3 class="center"><b>Cantones</b></h3>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-<?php echo Html::linkAction('create', 'Nuevo registro +', "class='btn green right'")  ?>
+<script type="text/javascript">
+    function confirmDelete() {
+        var respuesta = confirm("Estas seguro que deseas eliminar el registro");
 
-<table class="centered table striped">
+        if (respuesta == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
 
-    <tr>
-        <thead>
-            <th>Id</th>
-            <th>Nombre del canton</th>
-            <th>Activo</th>
-            <th>Acciones</th>
-        </thead>
+<body>
+    <?php echo View::content() ?>
 
-        <?php foreach ($lista_cantones->items as $item) : ?>
+    <h3 class="center"><b>Cantones</b></h3>
 
-    <tr>
-        <td><?php echo $item->id ?></td>
-        <td><?php echo $item->nombre_canton ?></td>
-        <td>
-            <?php
-            if ($item->habilitado == 1) {
-                echo "Habilitado";
-            }
-            if ($item->habilitado == 0) {
-                echo "Inhabilitado";
-            }
-            ?>
-        </td>
-        <td>
-            <?php echo Html::linkAction("edit/$item->id/", "Editar", 'class="btn"') ?>
-            <?php echo Html::linkAction("del/$item->id/", "Borrar", 'class="btn red"') ?>
-        </td>
+    <?php echo Html::linkAction('create', 'Nuevo registro +', "class='btn green right'")  ?>
+
+    <table class="centered table striped">
+
+        <tr>
+            <thead>
+                <th>Id</th>
+                <th>Nombre del canton</th>
+                <th>Municipio</th>
+                <th>Activo</th>
+                <th>Acciones</th>
+            </thead>
+
+            <?php foreach ($lista_cantones->items as $item) : ?>
+
+        <tr>
+            <td><?php echo $item->id ?></td>
+            <td><?php echo $item->nombre_canton ?></td>
+            <td><?php echo $item->id_municipio ?></td>
+            <td>
+                <?php
+                if ($item->habilitado == 1) {
+                    echo "Habilitado";
+                }
+                if ($item->habilitado == 0) {
+                    echo "Inhabilitado";
+                }
+                ?>
+            </td>
+            <td>
+                <?php echo Html::linkAction("edit/$item->id/", "Editar", 'class="btn blue"') ?>
+                <?php echo Html::linkAction("del/$item->id/", "Borrar", 'class="btn red"') 
+                ?>
+            </td>
+        </tr>
+
+    <?php endforeach ?>
     </tr>
+    </table>
+</body>
 
-<?php endforeach ?>
-</tr>
-</table>
+</html>
