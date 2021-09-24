@@ -1,0 +1,41 @@
+<div class="row section">
+
+    <?php View::content(); ?>
+    <h3 class="center"><b>Registro rutas</b></h3>
+
+    <?php echo Form::open(); ?>
+
+    <div class="col s6">
+        <label for="">Nombre de ruta
+            <?php echo Form::text('rutas.nombre_rutas'); ?>
+        </label>
+    </div>
+
+    <div class="col s6">
+        <label for="">Paradas
+            <?php echo Form::text('rutas.nombre_parada'); ?>
+        </label>
+
+        <br> <br>
+    </div>
+
+
+    <div class="col s6">
+        <label for="habilitado">Habilitado
+            <?php
+            $arreglo = array('Inhabilitado', 'Habilitado');
+            echo Form::select('rutas.habilitado', $arreglo);
+            ?>
+        </label>
+
+        <br> <br>
+    </div>
+
+    <div class="col s12">
+        <?php echo Form::submit('Guardar', 'class="btn green"') ?>
+        <?php echo Form::reset('Limpiar', 'class="btn blue"') ?>
+        <?php echo Html::linkAction('index', 'regresar', "class='btn red darken-1'") ?>
+    </div>
+
+    <?php echo Form::close(); ?>
+</div>

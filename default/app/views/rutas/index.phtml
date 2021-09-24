@@ -1,0 +1,42 @@
+<?php echo View::content() ?>
+
+<h3 class="center"><b>RUTAS</b></h3>
+
+<?php echo Html::linkAction('create', 'Nuevo registro +', "class='btn green right'")  ?>
+
+<table class="centered table striped">
+
+    <tr>
+        <thead>
+            <th>Id</th>
+            <th>Nombre de Ruta</th>
+            <th>Nombre de Parada</th>
+            <th>Activo</th>
+        
+        </thead>
+
+        <?php foreach($lista_rutas->items as $item) : ?>
+
+            <tr>
+                <td><?php echo $item->Id ?></td>
+                <td><?php echo $item->nombre_ruta?></td>
+                <td><?php echo $item->nombre_parada ?></td>
+                <td>
+                    <?php
+                    if ($item->habilitado == 1) {
+                        echo "Habilitado";
+                    }
+                    if ($item->habilitado == 0) {
+                        echo "Inhabilitado";
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php echo Html::linkAction("edit/$item->Id/", "Editar", 'class="btn"') ?>
+                    <?php echo Html::linkAction("del/$item->Id/", "Borrar", 'class="btn red"') ?>
+                </td>
+            </tr>
+
+        <?php endforeach ?>
+    </tr>
+</table>
