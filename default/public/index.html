@@ -3,8 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
-    <link rel="stylesheet" href="menu.css">
+    
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +14,8 @@
 
         /* Google Fonts Import Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
 
 * {
     margin: 0;
@@ -29,7 +30,7 @@
     left: 0;
     height: 100%;
     width: 260px;
-    background: #11101d;
+    background: black;
     z-index: 100;
     transition: all 0.5s ease;
 }
@@ -57,9 +58,10 @@
 .sidebar .logo-details .logo_name {
     font-size: 22px;
     color: #fff;
-    font-weight: 600;
+    font-weight: 100;
     transition: 0.3s ease;
     transition-delay: 0.1s;
+    font-family: 'Lily Script One', cursive;
 }
 
 .sidebar.close .logo-details .logo_name {
@@ -159,6 +161,15 @@
     transition: all 0.3s ease;
 }
 
+.sidebar .nav-links li .sub-menu span.titu{
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 0;
+    
+    
+    
+}
+
 .sidebar .nav-links li .sub-menu a:hover {
     opacity: 1;
 }
@@ -192,6 +203,7 @@
     opacity: 1;
     display: block;
 }
+
 
 .sidebar .nav-links li .sub-menu.blank {
     opacity: 1;
@@ -265,7 +277,7 @@
 
 .home-section {
     position: relative;
-    background: #E4E9F7;
+    
     height: 100vh;
     left: 260px;
     width: calc(100% - 260px);
@@ -306,6 +318,7 @@
 }
 
 
+
     </style>
 
   <div class="sidebar close">
@@ -324,21 +337,21 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="condicionesyservicios.html">
           <i class='bx bx-task'></i>
           <span class="link_name">Condiciones y servicio</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Condiciones y servicio</a></li>
+          <li><a class="link_name" href="condicionesyservicios.html">Condiciones y servicio</a></li>
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="politicayprivacidad.html">
           <i class='bx bx-book-bookmark'></i>
-          <span class="link_name">Politica y privacidad</span>
+          <span class="link_name">Política y privacidad</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Politica y privacidad</a></li>
+          <li><a class="link_name" href="politicayprivacidad.html">Política y privacidad</a></li>
         </ul>
       </li>
       
@@ -346,28 +359,26 @@
         <div class="iocn-link">
           <a href="#">
             <i class='bx bx-cog' ></i>
-            <span class="link_name">Configuracion</span>
+            <span class="link_name">Configuración</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Configuracion</a></li>
+          <li><a class="link_name" href="#">Configuración</a></li>
 
           <li><a href="#"></a></li>
           
           
           <li>
               <div class="iocn-link">
-                <a href="#">
-                  <span class="link_name">Idioma</span>
-                </a>
-                <i class='bx bxs-chevron-down arrow' ></i>
+                
+                  <li><span class="titu">Idioma</span></li>
+                    <li><a href="#">Español</a></li>
+                    <li><a href="#">Inglés</a></li>
+                <!-- <i class='bx bxs-chevron-down arrow' ></i> -->
               </div>
 
-              <ul class="sub-menu">
-                <li><a href="#">Español</a></li>
-                <li><a href="#">Inglés</a></li>
-              </ul>
+              
 
 
           </li>
