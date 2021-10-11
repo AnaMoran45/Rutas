@@ -11,16 +11,19 @@
             <th>Id</th>
             <th>Nombre de Ruta</th>
             <th>Nombre de Parada</th>
+            <th>municipio</th>
             <th>Activo</th>
+
         
         </thead>
 
-        <?php foreach($lista_rutas->items as $item) : ?>
+        <?php foreach($listarutas->items as $item) : ?>
 
             <tr>
-                <td><?php echo $item->Id ?></td>
+                <td><?php echo $item->id ?></td>
                 <td><?php echo $item->nombre_ruta?></td>
-                <td><?php echo $item->nombre_parada ?></td>
+                <td><?php echo $item->paradas ?></td>
+                <td><?php echo $item->id_municipio?></td>
                 <td>
                     <?php
                     if ($item->habilitado == 1) {
@@ -32,8 +35,8 @@
                     ?>
                 </td>
                 <td>
-                    <?php echo Html::linkAction("edit/$item->Id/", "Editar", 'class="btn"') ?>
-                    <?php echo Html::linkAction("del/$item->Id/", "Borrar", 'class="btn red"') ?>
+                    <?php echo Html::linkAction("edit/$item->id/", "Editar", 'class="btn"') ?>
+                    <?php echo Html::linkAction("del/$item->id/", "Borrar", 'class="btn red"') ?>
                 </td>
             </tr>
 

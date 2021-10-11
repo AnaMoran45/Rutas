@@ -10,7 +10,7 @@
             View::template('estilos_rutas');
             $this->titulo = "rutas - Index";
             $rutas = new rutas();
-            $this -> lista_rutas = $rutas -> getrutas($page);
+            $this -> listarutas = $rutas -> getrutas($page);
         }
 
         //Create
@@ -34,7 +34,7 @@
 
         //Edit
 
-        public function edit($Id)
+        public function edit($id)
         {
             View::template('estilos_rutas');
             $this -> titulo = "rutas - Edit";
@@ -49,18 +49,18 @@
                     return Redirect::to();
                 }
             }else{
-                $this->rutas = $rutas->find((int)$Id);
+                $this->rutas = $rutas->find((int)$id);
             }
 
         }
 
         //Delete
 
-        public function del($Id)
+        public function del($id)
         {
             $rutas = new rutas();
 
-            if (!$rutas->delete((int)$Id)) {
+            if (!$rutas->delete((int)$id)) {
                 Flash::error("El registro no pudo eliminarse, vuelva a intentarlo");
             }else {
                 Flash::valid("Registro elminado");

@@ -7,18 +7,28 @@
 
     <div class="col s6">
         <label for="">Nombre de ruta
-            <?php echo Form::text('rutas.nombre_rutas'); ?>
+            <?php echo Form::text('rutas.nombre_ruta'); ?>
         </label>
     </div>
 
     <div class="col s6">
         <label for="">Paradas
-            <?php echo Form::text('rutas.nombre_parada'); ?>
+            <?php echo Form::text('rutas.paradas'); ?>
         </label>
 
         <br> <br>
     </div>
 
+    <div class="col s6">
+        <label for="municipio">Municipio
+            <?php
+            $arreglo = array('Izalco'=>'Izalco', 'Sonzacate'=>'Sonzacate', 'Armenia'=>'Armenia', 'Nahuizalco'=>'Nahuizalco');
+            echo Form::select('rutas.id_municipio', $arreglo);
+            ?>
+        </label>
+
+        <br> <br>
+    </div>
 
     <div class="col s6">
         <label for="habilitado">Habilitado
